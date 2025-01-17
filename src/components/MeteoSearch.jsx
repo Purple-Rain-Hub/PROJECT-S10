@@ -13,7 +13,7 @@ function MeteoSearch() {
       );
       if (response.ok) {
         let data = await response.json();
-        setSearch(data.list);
+        setSearch(data);
       } else throw new Error("errore nella fetch di ricerca");
     } catch (error) {
       console.error(error);
@@ -41,7 +41,7 @@ function MeteoSearch() {
       <div>
         {search && (
           <ListGroup>
-            {search.map((d) => {
+            {search.list.map((d) => (
               <ListGroup.Item>
                 <Row className="align-content-center">
                   <Col xs={3}>Data: {d.dt_txt}</Col>
@@ -53,8 +53,8 @@ function MeteoSearch() {
                   <Col xs={3}>Probabilità di pioggia: {d.pop}</Col>
                   <Col xs={3}>Vento: {d.wind.speed}m/s</Col>
                 </Row>
-              </ListGroup.Item>;
-            })}
+              </ListGroup.Item>
+            ))}
           </ListGroup>
         )}
       </div>
