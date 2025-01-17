@@ -1,23 +1,20 @@
 import Container from "react-bootstrap/Container";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import Form from "react-bootstrap/Form";
-import InputGroup from "react-bootstrap/InputGroup";
+import { Link } from "react-router-dom";
 
 function MeteoNavbar() {
   return (
     <Navbar expand="lg" className="bg-body-tertiary">
       <Container className="d-flex justify-content-between">
-        <Navbar.Brand href="#home">DADA METEO</Navbar.Brand>
+        <Link to="/" className=" navbar-brand">
+          DADA METEO
+        </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Nav className="w-50 ">
-          <InputGroup>
-            <Form.Control
-              placeholder="Cerca la tua Citta!"
-              aria-label="Cerca la tua Citta!"
-              aria-describedby="basic-addon1"
-            />
-          </InputGroup>
+          <Link to="/search" className="nav-link">
+            CERCA CITTA
+          </Link>
         </Nav>
       </Container>
     </Navbar>
